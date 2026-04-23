@@ -489,68 +489,22 @@
       page-break-before: auto;
     }
   }
-  /* Password gate */
-  .password-gate {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(180deg, #020e1a 0%, #0b3d5e 50%, #051525 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-  }
-  .password-gate h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #4fc3f7, #81d4fa, #29b6f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 8px;
-  }
-  .password-gate p {
-    color: #6b8da8;
-    font-size: 0.9rem;
-    margin-bottom: 24px;
-  }
-  .password-gate input {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(79,195,247,0.3);
-    color: #e0e8f0;
-    padding: 12px 20px;
+  .dive-notes {
+    font-size: 0.82rem;
+    color: #7badc8;
+    font-style: italic;
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
     border-radius: 8px;
-    font-size: 1rem;
-    width: 260px;
-    text-align: center;
-    outline: none;
-  }
-  .password-gate input:focus {
-    border-color: rgba(79,195,247,0.6);
-  }
-  .password-gate .error {
-    color: #e74c3c;
-    font-size: 0.8rem;
-    margin-top: 10px;
-    min-height: 1.2em;
-  }
-  .dashboard-content {
-    display: none;
-  }
-  .dashboard-content.unlocked {
-    display: block;
   }
 </style>
 </head>
 <body>
 
-<div class="password-gate" id="gate">
-  <h1>Lei Lei's DiveLog</h1>
-  <p>Enter password to view</p>
-  <input type="password" id="pwInput" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()"/>
-  <div class="error" id="pwError"></div>
-</div>
-
-<div class="dashboard-content" id="dashContent">
 <div class="ocean-bg"></div>
 <div class="caustics"></div>
 <div class="ocean-scene">
@@ -696,6 +650,7 @@
         </div>
       </div>
       <div id="diveInfo" class="dive-info"></div>
+      <div id="diveNotes" class="dive-notes" style="display:none;"></div>
       <div class="chart-container tall"><canvas id="profileChart"></canvas></div>
     </div>
   </div>
@@ -1030,6 +985,15 @@ function updateProfile() {
     ${dive.suit ? `<span>Suit: <strong>${dive.suit}</strong></span>` : ''}
   `;
 
+  const notesDiv = document.getElementById('diveNotes');
+  if (dive.notes && dive.notes.trim()) {
+    notesDiv.textContent = dive.notes;
+    notesDiv.style.display = 'block';
+  } else {
+    notesDiv.textContent = '';
+    notesDiv.style.display = 'none';
+  }
+
   const sampleLabels = dive.samples.map(s => {
     const m = Math.floor(s[0] / 60);
     const sec = s[0] % 60;
@@ -1095,26 +1059,6 @@ updateProfile();
   }
 })();
 
-// --- Password Gate ---
-function checkPw() {
-  const input = document.getElementById('pwInput').value;
-  const hash = Array.from(new TextEncoder().encode(input)).reduce((h, b) => ((h << 5) - h + b) | 0, 0);
-  if (hash === 1674207440) {
-    document.getElementById('gate').style.display = 'none';
-    document.getElementById('dashContent').classList.add('unlocked');
-    sessionStorage.setItem('divelog_auth', '1');
-    window.dispatchEvent(new Event('resize'));
-  } else {
-    document.getElementById('pwError').textContent = 'Wrong password';
-    document.getElementById('pwInput').value = '';
-  }
-}
-// Auto-unlock if already authenticated this session
-if (sessionStorage.getItem('divelog_auth') === '1') {
-  document.getElementById('gate').style.display = 'none';
-  document.getElementById('dashContent').classList.add('unlocked');
-}
 </script>
-</div>
 </body>
 </html>
