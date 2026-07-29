@@ -12,7 +12,7 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #9fe8f7;
-    color: #e0e8f0;
+    color: #15495c;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -120,27 +120,28 @@
     margin-bottom: 24px;
   }
   .stat-card {
-    background: rgba(0,30,55,0.55);
-    border: 1px solid rgba(79,195,247,0.18);
+    background: rgba(255,255,255,0.78);
+    border: 1px solid rgba(255,255,255,0.9);
     border-radius: 16px;
     padding: 20px;
     text-align: center;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(9,90,120,0.12);
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
   .stat-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(79,195,247,0.4);
-    box-shadow: 0 4px 24px rgba(79,195,247,0.15);
+    border-color: rgba(14,126,163,0.4);
+    box-shadow: 0 10px 28px rgba(9,90,120,0.22);
   }
   .stat-card .value {
     font-size: 2rem;
     font-weight: 700;
-    color: #4fc3f7;
+    color: #0e7ea3;
   }
   .stat-card .label {
     font-size: 0.75rem;
-    color: #6b8da8;
+    color: #5a7683;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 4px;
@@ -152,18 +153,19 @@
     margin-bottom: 24px;
   }
   .chart-card {
-    background: rgba(0,30,55,0.5);
-    border: 1px solid rgba(79,195,247,0.15);
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.9);
     border-radius: 16px;
     padding: 20px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(9,90,120,0.12);
   }
   .chart-card.full-width {
     grid-column: 1 / -1;
   }
   .chart-card h3 {
     font-size: 1rem;
-    color: #4fc3f7;
+    color: #0e7ea3;
     margin-bottom: 16px;
     font-weight: 600;
   }
@@ -184,21 +186,21 @@
     overflow: hidden;
   }
   .trips-sidebar {
-    background: rgba(0,0,0,0.3);
+    background: rgba(236,250,255,0.6);
     padding: 16px;
     overflow-y: auto;
     max-height: 480px;
   }
   .trips-sidebar h4 {
     font-size: 0.8rem;
-    color: #6b8da8;
+    color: #5a7683;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 12px;
   }
   .trip-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(14,126,163,0.14);
     border-radius: 10px;
     padding: 12px;
     margin-bottom: 8px;
@@ -206,12 +208,12 @@
     transition: background 0.2s, border-color 0.2s;
   }
   .trip-card:hover {
-    background: rgba(79,195,247,0.08);
-    border-color: rgba(79,195,247,0.2);
+    background: rgba(14,126,163,0.1);
+    border-color: rgba(14,126,163,0.3);
   }
   .trip-card .trip-name {
     font-size: 0.9rem;
-    color: #e0e8f0;
+    color: #15495c;
     font-weight: 500;
     margin-bottom: 4px;
   }
@@ -222,16 +224,16 @@
   }
   .trip-card .trip-count {
     font-size: 0.8rem;
-    color: #6b8da8;
+    color: #5a7683;
   }
   .trip-card .trip-stars {
     font-size: 0.85rem;
-    color: #f1c40f;
+    color: #e6a100;
     letter-spacing: 1px;
   }
   .trip-card .trip-keywords {
     font-size: 0.72rem;
-    color: #5a9ab5;
+    color: #37788f;
     font-style: italic;
     margin-top: 2px;
   }
@@ -247,7 +249,7 @@
   }
   .legend-item {
     font-size: 0.8rem;
-    color: #6b8da8;
+    color: #5a7683;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -266,16 +268,16 @@
     flex-wrap: wrap;
   }
   .dive-selector select {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: #e0e8f0;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(14,126,163,0.25);
+    color: #15495c;
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 0.9rem;
     flex: 1;
     min-width: 200px;
   }
-  .dive-selector select option { background: #0c1628; }
+  .dive-selector select option { background: #ffffff; color: #15495c; }
   .dive-info {
     display: flex;
     gap: 20px;
@@ -284,9 +286,9 @@
   }
   .dive-info span {
     font-size: 0.85rem;
-    color: #6b8da8;
+    color: #5a7683;
   }
-  .dive-info span strong { color: #4fc3f7; }
+  .dive-info span strong { color: #0e7ea3; }
   .nav-btns {
     display: flex;
     gap: 8px;
@@ -294,7 +296,7 @@
   .nav-btns button {
     background: rgba(79,195,247,0.15);
     border: 1px solid rgba(79,195,247,0.3);
-    color: #4fc3f7;
+    color: #0e7ea3;
     padding: 6px 12px;
     border-radius: 6px;
     cursor: pointer;
@@ -492,14 +494,14 @@
   }
   .dive-notes {
     font-size: 0.82rem;
-    color: #7badc8;
+    color: #4a6b78;
     font-style: italic;
     max-height: 120px;
     overflow-y: auto;
     margin-bottom: 12px;
     line-height: 1.5;
     padding: 10px;
-    background: rgba(255,255,255,0.03);
+    background: rgba(14,126,163,0.06);
     border-radius: 8px;
   }
 </style>
@@ -714,8 +716,8 @@ const tripRatings = [["Tioman", 5.0], ["Mendocino ", 5.0], ["Tulum", 4.62], ["PG
 const topBuddies = [["Tongtong", 18], ["Rusty", 17], ["Yilin Ma", 17], ["Rui Shi", 14], ["Siyu", 8]];
 const weightBoxplot = [{"label": "rashguard / Salt", "min": 1.8, "median": 3.0, "max": 3.0, "n": 27}, {"label": "thermocline / Salt", "min": 3.0, "median": 3.0, "max": 3.0, "n": 4}, {"label": "3mm shorty / Salt", "min": 4.0, "median": 4.0, "max": 4.0, "n": 4}, {"label": "3mm / Salt", "min": 3.6, "median": 4.0, "max": 5.4, "n": 16}, {"label": "5mm / Fresh", "min": 4.5, "median": 4.5, "max": 4.5, "n": 5}, {"label": "5mm / Salt", "min": 4.5, "median": 5.0, "max": 5.0, "n": 6}, {"label": "Drysuit - Double LP50 / Salt", "min": 5.4, "median": 5.4, "max": 5.4, "n": 1}, {"label": "Drysuit+Vest - Double LP72 / Salt", "min": 5.4, "median": 5.4, "max": 5.4, "n": 1}, {"label": "7mm + 5mm hooded vest / Salt", "min": 5.4, "median": 5.9, "max": 7.3, "n": 22}, {"label": "7mm / Salt", "min": 6.3, "median": 6.3, "max": 8.2, "n": 4}, {"label": "5mm+3mm shorty / Salt", "min": 6.3, "median": 6.3, "max": 6.3, "n": 5}, {"label": "7mm + 5mm hooded vest + 2mm thermocline / Salt", "min": 6.3, "median": 6.3, "max": 6.3, "n": 2}, {"label": "Drysuit / Salt", "min": 7.3, "median": 8.2, "max": 10.4, "n": 13}, {"label": "Drysuit+Vest / Salt", "min": 7.3, "median": 8.2, "max": 9.1, "n": 5}];
 
-Chart.defaults.color = '#6b8da8';
-Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.color = '#5a7683';
+Chart.defaults.borderColor = 'rgba(15,73,92,0.12)';
 
 // --- SAC Rate Trend ---
 const sacDives = dives.filter(d => d.sac !== undefined);
@@ -794,7 +796,7 @@ new Chart(document.getElementById('sacChart'), {
         c.moveTo(xPixel, yTop);
         c.lineTo(xPixel, yBot);
         c.lineWidth = 3;
-        c.strokeStyle = '#ffffff';
+        c.strokeStyle = '#123a4a';
         c.stroke();
       });
       c.restore();
@@ -828,7 +830,7 @@ new Chart(document.getElementById('sacChart'), {
             boxWidth: 12, font: { size: 11 },
             generateLabels: () => [
               { text: 'Min – Max range', fillStyle: 'rgba(79,195,247,0.4)', strokeStyle: 'rgba(79,195,247,0.6)', lineWidth: 1 },
-              { text: 'Median', fillStyle: '#ffffff', strokeStyle: '#ffffff', lineWidth: 2 },
+              { text: 'Median', fillStyle: '#123a4a', strokeStyle: '#123a4a', lineWidth: 2 },
             ]
           }
         },
@@ -903,7 +905,7 @@ new Chart(document.getElementById('progressChart'), {
       {
         label: 'Max Depth (m)',
         data: dives.map(d => d.max_depth || 0),
-        borderColor: '#4fc3f7',
+        borderColor: '#0e7ea3',
         backgroundColor: 'rgba(79,195,247,0.1)',
         fill: true,
         tension: 0.3,
@@ -942,7 +944,7 @@ new Chart(document.getElementById('progressChart'), {
 
 // --- Map ---
 const map = L.map('map').setView([10, 50], 2);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap &copy; CARTO',
   maxZoom: 19
 }).addTo(map);
@@ -956,7 +958,7 @@ const regionColors = {
   'thailand': '#1abc9c',
   'tioman': '#f1c40f',
   'maldives': '#e84393',
-  'other': '#4fc3f7'
+  'other': '#0e7ea3'
 };
 
 function getRegion(lat, lon) {
@@ -1065,7 +1067,7 @@ function updateProfile() {
       datasets: [{
         label: 'Depth (m)',
         data: data,
-        borderColor: '#4fc3f7',
+        borderColor: '#0e7ea3',
         backgroundColor: gradient,
         fill: true,
         tension: 0.2,
